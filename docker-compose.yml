@@ -1,0 +1,10 @@
+version: '3'
+services:
+  nodejs:
+    image: gabriel/app-node:latest
+    build: .
+    command: npm start
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src

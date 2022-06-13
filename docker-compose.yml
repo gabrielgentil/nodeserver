@@ -5,6 +5,15 @@ services:
     build: .
     command: npm start
     ports:
-      - "3000:3000"
+      - "9229:9229"
     volumes:
-      - .:/usr/src
+      - .:/usr/src/app
+
+  web:
+    image: nginx
+    volumes:
+    - ./nginx/app.conf:/etc/nginx/nginx.conf
+    depends_on:
+    - minha_app
+    ports:
+    - 80:80
